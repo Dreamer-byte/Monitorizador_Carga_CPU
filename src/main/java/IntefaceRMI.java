@@ -16,4 +16,5 @@ public interface IntefaceRMI extends Remote{
     public void loadMonitor(String Fichero,String Ip)throws RemoteException;
     public int iniClient()throws RemoteException;
     public void getLoadAvg()throws RemoteException;
+    public int ReturnTime() throws RemoteException;
 }

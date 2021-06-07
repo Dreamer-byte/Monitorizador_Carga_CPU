@@ -27,9 +27,11 @@ public class ImplIntefaceRMI extends UnicastRemoteObject implements IntefaceRMI
     {
         super();
         ListMonitor = new ArrayList<String>();
-        
+        ListCarga = new ArrayList<String>();
+        Time = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el periodo de tiempo con el que se estara revisando"));
        
     }
+    @Override
      public void iniMonitor(String Monitor)
      {
          try
@@ -108,6 +110,12 @@ public class ImplIntefaceRMI extends UnicastRemoteObject implements IntefaceRMI
                 
             }
         }
+        @Override
+         public int ReturnTime()
+         {
+             return  Time;
+         }
+         
       
       
 }

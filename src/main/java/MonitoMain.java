@@ -51,7 +51,8 @@ public class MonitoMain {
             Ip = IpAdd.getHostAddress();
             
             Registry RegServer = LocateRegistry.getRegistry(IpServer, 1099);
-            ImplIntefaceRMI ObjCoordinador = (ImplIntefaceRMI) Naming.lookup("//"+IpServer+"/miCoordinador");
+            //ImplIntefaceRMI ObjCoordinador = (ImplIntefaceRMI) Naming.lookup("//"+IpServer+"/miCoordinador");
+            IntefaceRMI ObjCoordinador = (IntefaceRMI) Naming.lookup("//"+IpServer+"/miCoordinador");
             JOptionPane.showMessageDialog(null, "Registrando al coordinador en el server");
             ObjCoordinador.iniMonitor(Ip);
             
@@ -67,7 +68,7 @@ public class MonitoMain {
                 ObjCoordinador.loadMonitor(ContenidoFichero, Ip);                //Si queremos hacer un rango de tiempo expresado en segundos debemos de
                 //Multiplica el valor Dado del server por Mill para convertirlos a milisegundo
                 //Dado que sleep trabaja con milisegundos
-                Thread.sleep(ObjCoordinador.Time*1000);
+                Thread.sleep(ObjCoordinador.ReturnTime()*1000);
             }
         }
         catch(Exception e)

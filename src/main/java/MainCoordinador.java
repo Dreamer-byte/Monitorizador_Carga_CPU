@@ -21,8 +21,10 @@ public class MainCoordinador {
     public static void main(String[] args) {
         try
         {
+            //Cambiar la implementacion del objeto por la interface
+            // Hacer un metodo que se capaz de retornar el intervalo de tiempo leido desde el coordinador
             ImplIntefaceRMI objCoordinador = new ImplIntefaceRMI();
-            objCoordinador.Time = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el periodo de tiempo con el que se estara revisando"));
+            //objCoordinador.Time = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el periodo de tiempo con el que se estara revisando"));
             Registry MyReg = LocateRegistry.createRegistry(1099);
             MyReg.rebind("miCoordinador", objCoordinador);
             JOptionPane.showMessageDialog(null, "Servidor Arrancando");
@@ -31,7 +33,7 @@ public class MainCoordinador {
         } 
         catch(Exception e)
         {
-            
+            JOptionPane.showMessageDialog(null, "Servidor error "+e.getMessage());
         }
         
     }

@@ -27,12 +27,12 @@ public class ClienteMain {
         try
         {
             Registry RegServer = LocateRegistry.getRegistry(IpServer, 1099);
-            ImplIntefaceRMI ObjCoordinador = (ImplIntefaceRMI) Naming.lookup("//"+IpServer+"/miCoordinador");
+            IntefaceRMI ObjCoordinador = (IntefaceRMI) Naming.lookup("//"+IpServer+"/miCoordinador");
             while(true)
             {
                 try
                 {
-                    Opc = Integer.parseInt(JOptionPane.showInputDialog("***Menu***\n 1:Cantidad de coordinadores activos.\n 2:Consultar carga.\n")) ;
+                    Opc = Integer.parseInt(JOptionPane.showInputDialog("***Menu***\n 1:Cantidad de coordinadores activos.\n 2:Consultar carga.\n 3: Salir")) ;
                     switch(Opc)
                     {
                         case 1:
@@ -42,6 +42,14 @@ public class ClienteMain {
                         case 2:
                             ObjCoordinador.getLoadAvg();
                             break;
+                        case 3:
+                            System.out.println("Cerrando el cliente");
+                            break;
+                    }
+                    
+                    if(Opc == 3 )
+                    {
+                        break;
                     }
                 }
                 catch(NumberFormatException e)
