@@ -39,6 +39,7 @@ public class ImplIntefaceRMI extends UnicastRemoteObject implements IntefaceRMI
              if(!ListMonitor.contains(Monitor))
              {
                  ListMonitor.add(Monitor);
+                 CountMonitors++;
              }
          }
          catch(NumberFormatException e)
@@ -80,7 +81,7 @@ public class ImplIntefaceRMI extends UnicastRemoteObject implements IntefaceRMI
                     Registry miRegistro = LocateRegistry.getRegistry(Ip2, 1099);
                     MoninitorImple ObjMonitor = (MoninitorImple) Naming.lookup("//"+Ip2+"/ObjetoMonitor");
                     ObjMonitor.PingMonitor();
-                    CountMonitors++;
+                    
                }
               
               
@@ -90,6 +91,8 @@ public class ImplIntefaceRMI extends UnicastRemoteObject implements IntefaceRMI
                IndexFun = ListMonitor.indexOf(Ip);
                ListMonitor.remove(Ip);
                ListCarga.remove(IndexFun);
+               CountMonitors--;
+               
                
           }
           catch(Exception e) 
