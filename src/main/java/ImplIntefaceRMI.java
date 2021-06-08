@@ -104,14 +104,17 @@ public class ImplIntefaceRMI extends UnicastRemoteObject implements IntefaceRMI
        }
        
        @Override
-        public void getLoadAvg()
+        public ArrayList<String> getLoadAvg()
         {
+            ArrayList<String> Lista = new ArrayList<String>();
             for (String Ip : ListMonitor) 
             {
-                JOptionPane.showMessageDialog(null,"\t\tServidor:\n Ip: "+Ip +"\n Carga: "+ ListCarga.get(ListMonitor.indexOf(Ip)));
+                String Carga =  "\t\tMonitor:\n Ip: "+Ip +"\n Carga: "+ ListCarga.get(ListMonitor.indexOf(Ip));
+                Lista.add(Carga);
                 
                 
             }
+            return Lista;
         }
         @Override
          public int ReturnTime()

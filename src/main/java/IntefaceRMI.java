@@ -10,11 +10,12 @@
  */
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 public interface IntefaceRMI extends Remote{
     
     public void iniMonitor(String Monitor)throws RemoteException;
     public void loadMonitor(String Fichero,String Ip)throws RemoteException;
     public int iniClient()throws RemoteException;
-    public void getLoadAvg()throws RemoteException;
+    public ArrayList<String> getLoadAvg()throws RemoteException;
     public int ReturnTime() throws RemoteException;
 }

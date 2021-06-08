@@ -3,6 +3,7 @@ import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,6 +24,7 @@ public class ClienteMain {
         
         String IpServer = JOptionPane.showInputDialog("Ingresa La Ip del Server");
         JOptionPane.showMessageDialog(null,"*****Iniciando el cliente*****");
+        ArrayList<String>ListaCarga;
         int Opc;
         try
         {
@@ -40,7 +42,11 @@ public class ClienteMain {
                             JOptionPane.showMessageDialog(null,"Los monitores activos son: "+CountActive);
                             break;
                         case 2:
-                            ObjCoordinador.getLoadAvg();
+                            ListaCarga = new ArrayList<String>();
+                            ListaCarga = ObjCoordinador.getLoadAvg();
+                            for (String MonitorCarga : ListaCarga) {
+                                JOptionPane.showMessageDialog(null, MonitorCarga);
+                            }
                             break;
                         case 3:
                             System.out.println("Cerrando el cliente");
